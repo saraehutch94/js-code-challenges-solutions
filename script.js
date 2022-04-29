@@ -965,6 +965,54 @@ function sayHello() {
   isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] ) // => false
   -----------------------------------------------------------------*/
   // Your solution for 24-isWinningTicket here:
+
+  // Pseudo-code:
+
+// We need to grab each nested array within the parent array being passed to the function
+// We know that each nested array will have two values in it: the string and the integer --> no need to loop again through nested arrays
+// From this isWinningTicket function, we will be returning true or false
+// true --> if all nested arrays have a substring within the provided string that has a character code equal to the integer within the array, we want to return true
+// false --> if any nested array has a substring within the provided string that does not have a character code equal to the integer within the array, we want to return false
+// To start function, we can set up an empty array, where we will be pushing all of our true and false statements
+// Our helper function below will be returning true or false, and then we will push it to the array
+// If array includes at least one false, return false from isWinningTicket function; if not, return true from isWinningTicket function
+// We can loop through the array's subarrays, and pass each subarray to a helper function
+// Within this helper function, I can access the first iteration of the array (the string) and loop through it, finding the substring's character codes
+// If any of these character codes match the integer provided in this array, we will return true
+// If none of the character codes match the integer provided, return false
+
+function isWinningTicket(arr) {
+
+  let assessArray = [];
+
+  function helpCharCode(subarray) {
+    for (let i = 0; i < subarray[0].length; i++) {
+
+      // grab the character code for each substring and set it to a variable (will be changing --> declare with let)
+      let charCode = subarray[0].charCodeAt(i);
+      // if any substring in the string has a character code that matches the integer, we want to return true
+      if (charCode === subarray[1]) return true;
+      // otherwise, we want to return false (below)
+    }
+    // here: return false (if return true above is never executed, this line of code will be hit)
+    return false;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    let pushToArray = helpCharCode(arr[i]);
+    assessArray.push(pushToArray);
+  }
+
+  // here: if assessArray includes false, return false
+  // else, return true
+  return assessArray.includes(false) ? false : true;
+
+}
+
+console.log(isWinningTicket( [ ['ABC', 65] ] )) // true
+console.log(isWinningTicket( [ ['ABC', 999], ['XY', 89] ] )) // false
+console.log(isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] )) // true
+console.log(isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] )) // false
   
   /*-----------------------------------------------------------------
   Challenge: 25-getNumForIP
