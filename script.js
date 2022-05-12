@@ -1048,10 +1048,10 @@ function getNumForIP(string) {
   for (let i = 0; i < ipArray.length; i++) {
     let number = parseInt(ipArray[i]);
     let product = number * (Math.pow(256, powerOf));
-    wholeProduct = wholeProduct + product;
-    powerOf = powerOf - 1;
+    wholeProduct += product;
+    powerOf -= 1;
   }
-  
+
   return wholeProduct;
 }
 
