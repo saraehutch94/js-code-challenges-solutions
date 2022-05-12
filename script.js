@@ -1038,32 +1038,18 @@ console.log(isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] )) //
   getNumForIP( '192.156.99.15' ) // => 3231474447
   getNumForIP( '10.0.0.1' ) // => 167772161
   -----------------------------------------------------------------*/
-  // Your solution for 25-getNumForIP here:
+// Your solution for 25-getNumForIP here:
 
 function getNumForIP(string) {
   const ipArray = string.split(".");
   let powerOf = ipArray.length - 1;
   let wholeProduct = 0;
 
-  // function helpIP(number) {
-  //   while (powerOf >= 0) {
-  //     let product = number * (Math.pow(256, powerOf));
-  //     wholeProduct = wholeProduct + product;
-  //     powerOf = powerOf - 1;
-  //     return;
-  //   }
-  // };
-
   for (let i = 0; i < ipArray.length; i++) {
     let number = parseInt(ipArray[i]);
-    // helpIP(number);
-
-    while (powerOf >= 0) {
-      let product = number * (Math.pow(256, powerOf));
-      wholeProduct = wholeProduct + product;
-      powerOf = powerOf - 1;
-      break;
-    }
+    let product = number * (Math.pow(256, powerOf));
+    wholeProduct = wholeProduct + product;
+    powerOf = powerOf - 1;
   }
   
   return wholeProduct;
