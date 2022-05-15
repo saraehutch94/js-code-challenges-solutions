@@ -1084,6 +1084,33 @@ console.log(getNumForIP( '10.0.0.1' )); // => 167772161
   toCamelCase( 'A_b_c' ) // => 'ABC'
   -----------------------------------------------------------------*/
   // Your solution for 26-toCamelCase here:
+
+  // Your solution for 26-toCamelCase here:
+
+function toCamelCase(string) {
+  const regex = /[-_]/g;
+  let stringArray = string.split("");
+
+  if (!regex.test(string)) return string;
+
+  for (let i = 0; i < stringArray.length; i++) {
+    if (regex.test(stringArray[i])) {
+      stringArray.splice(i + 1, 1, stringArray[i + 1].toUpperCase());
+    }
+  }
+
+  let stringJoin = stringArray.join("");
+  stringJoin = stringJoin.replace(regex, "");
+
+  return stringJoin;
+
+};
+
+
+console.log(toCamelCase('Mama-mia')); // => 'MamaMia'
+console.log(toCamelCase( 'banana_turkey_potato' )) // => 'bananaTurkeyPotato'
+console.log(toCamelCase( 'sei-rocks' )) // => 'seiRocks'
+console.log(toCamelCase( 'A_b_c' )) // => 'ABC'
   
   /*-----------------------------------------------------------------
   Challenge: 27-countTheBits
