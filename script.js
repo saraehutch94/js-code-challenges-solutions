@@ -1009,10 +1009,10 @@ function isWinningTicket(arr) {
 
 }
 
-console.log(isWinningTicket( [ ['ABC', 65] ] )) // true
-console.log(isWinningTicket( [ ['ABC', 999], ['XY', 89] ] )) // false
-console.log(isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] )) // true
-console.log(isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] )) // false
+// console.log(isWinningTicket( [ ['ABC', 65] ] )) // true
+// console.log(isWinningTicket( [ ['ABC', 999], ['XY', 89] ] )) // false
+// console.log(isWinningTicket( [ ['ABC', 66], ['dddd', 100], ['Hello', 108] ] )) // true
+// console.log(isWinningTicket( [ ['ABC', 66], ['dddd', 15], ['Hello', 108] ] )) // false
   
   /*-----------------------------------------------------------------
   Challenge: 25-getNumForIP
@@ -1055,10 +1055,10 @@ function getNumForIP(string) {
   return wholeProduct;
 }
 
-console.log(getNumForIP('192.156.99.15')); // => 3231474447
-console.log(getNumForIP( '0.0.2.0' )); // => 512
-console.log(getNumForIP( '0.0.0.1' )); // => 1
-console.log(getNumForIP( '10.0.0.1' )); // => 167772161
+// console.log(getNumForIP('192.156.99.15')); // => 3231474447
+// console.log(getNumForIP( '0.0.2.0' )); // => 512
+// console.log(getNumForIP( '0.0.0.1' )); // => 1
+// console.log(getNumForIP( '10.0.0.1' )); // => 167772161
   
   /*-----------------------------------------------------------------
   Challenge: 26-toCamelCase
@@ -1105,11 +1105,10 @@ function toCamelCase(string) {
 
 };
 
-
-console.log(toCamelCase('Mama-mia')); // => 'MamaMia'
-console.log(toCamelCase( 'banana_turkey_potato' )) // => 'bananaTurkeyPotato'
-console.log(toCamelCase( 'sei-rocks' )) // => 'seiRocks'
-console.log(toCamelCase( 'A_b_c' )) // => 'ABC'
+// console.log(toCamelCase('Mama-mia')); // => 'MamaMia'
+// console.log(toCamelCase( 'banana_turkey_potato' )) // => 'bananaTurkeyPotato'
+// console.log(toCamelCase( 'sei-rocks' )) // => 'seiRocks'
+// console.log(toCamelCase( 'A_b_c' )) // => 'ABC'
   
   /*-----------------------------------------------------------------
   Challenge: 27-countTheBits
@@ -1135,7 +1134,23 @@ console.log(toCamelCase( 'A_b_c' )) // => 'ABC'
   countTheBits( 255 ) //=> 8
   countTheBits( 65535 )  //=> 16
   -----------------------------------------------------------------*/
-  // Your solution for 27-countTheBits here:
+// Your solution for 27-countTheBits here:
+
+function countTheBits(number) {
+  let stringRep = number.toString(2);
+  let numOfOnes = 0;
+
+  for (let i = 0; i < stringRep.length; i++) {
+    if (stringRep[i] === "1") numOfOnes += 1;
+  }
+  return numOfOnes;
+}
+
+// console.log(countTheBits( 0 )); // => 0
+// console.log(countTheBits( 13 )); // => 3
+// console.log(countTheBits( 256 )); // => 1
+// console.log(countTheBits( 255 )); //=> 8
+// console.log(countTheBits( 65535 ));  //=> 16
   
   /*-----------------------------------------------------------------
   Challenge: 28-gridTrip
