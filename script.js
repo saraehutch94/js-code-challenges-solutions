@@ -1083,15 +1083,14 @@ console.log(getNumForIP( '10.0.0.1' )); // => 167772161
   toCamelCase( 'Mama-mia' ) // => 'MamaMia'
   toCamelCase( 'A_b_c' ) // => 'ABC'
   -----------------------------------------------------------------*/
-  // Your solution for 26-toCamelCase here:
 
   // Your solution for 26-toCamelCase here:
 
 function toCamelCase(string) {
   const regex = /[-_]/g;
-  let stringArray = string.split("");
-
   if (!regex.test(string)) return string;
+
+  let stringArray = string.split("");
 
   for (let i = 0; i < stringArray.length; i++) {
     if (regex.test(stringArray[i])) {
