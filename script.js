@@ -1175,6 +1175,39 @@ function countTheBits(number) {
   gridTrip( [-22, 100], 'L2L15D50U1D9') //=> [-80, 83]
   -----------------------------------------------------------------*/
   // Your solution for 28-gridTrip here:
+
+  function gridTrip(arr, string) {
+
+    let x = arr[0];
+    let y = arr[1];
+    const regexNums = /([0-9]+)/g;
+    const regexLetters = /[^LRUD0-9]/g;
+  
+    if (string.match(regexLetters)) return "enter correct directions: U - up, D- down, L - left, R- right";
+    if (arr.length != 2) return "only enter two coordinates, x and y, respectfully.";
+  
+    let stringToArray = string.split(regexNums).filter(element => element != "");
+  
+    for (let i = 0; i < stringToArray.length; i++) {
+      if (stringToArray[i] === "L") {
+        y -= parseInt(stringToArray[i + 1]);
+      } else if (stringToArray[i] === "R") {
+        y += parseInt(stringToArray[i + 1]);
+      } else if (stringToArray[i] === "U") {
+        x += parseInt(stringToArray[i + 1]);
+      } else if (stringToArray[i] === "D") {
+        x -= parseInt(stringToArray[i + 1]);
+      }
+    }
+  
+    const resultArray = [x, y];
+    return resultArray;
+  
+  };
+  
+  // console.log(gridTrip( [0, 0], 'U2R1' )); // => [2, 1]
+  // console.log(gridTrip( [5, 10], 'D5L15U2' )); //-> [2, -5]
+  // console.log(gridTrip( [-22, 100], 'L2L15D50U1D9')); //=> [-80, 83]
   
   /*-----------------------------------------------------------------
   Challenge: 29-addChecker
