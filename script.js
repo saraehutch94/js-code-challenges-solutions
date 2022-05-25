@@ -1234,6 +1234,33 @@ function countTheBits(number) {
   addChecker( [10, 15, 16, 22], 19 ) // => false
   -----------------------------------------------------------------*/
   // Your solution for 29-addChecker here:
+
+  function addChecker(arr, num) {
+
+    while (arr.length >= 2) {
+  
+      let first = arr[0];
+      let last = arr[arr.length - 1];
+      let sum = first + last;
+  
+      if (sum > num) {
+        arr.splice(arr.length - 1, 1);
+        addChecker(arr, num);
+      } else if (sum < num) {
+        arr.splice(0, 1);
+        addChecker(arr, num);
+      } else {
+        return true;
+      }
+    }
+    return false;
+  };
+  
+  // console.log(addChecker( [1, 2], 3 )); // => true
+  // console.log(addChecker( [-3, 2], 9 )); // => false
+  // console.log(addChecker( [10, 15, 16, 22], 32 )); // => true
+  // console.log(addChecker( [10, 15, 16, 22], 19 )); // => false
+  // console.log(addChecker( [2, 3, 4, 6, 7], 7 )); // => true
   
   /*-----------------------------------------------------------------
   Challenge: 30-totalTaskTime
